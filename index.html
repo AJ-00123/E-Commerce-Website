@@ -19,7 +19,7 @@
         opacity: 1;
         margin: 0 4px;
         transition: width 0.3s, height 0.3s;
-      }
+      }ac
 
       .swiper-pagination-bullet-active {
         background: #ffffff;
@@ -66,36 +66,37 @@
     }
 
     .best-sellers {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 boxes in a row */
-      gap: 32px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 0 16px;
+    margin: 0 auto;
+  }
 
     .product-card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 16px rgb(0 0 0 / 0.1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    height: 400px;
+  }
 
     .product-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 16px 32px rgb(0 0 0 / 0.2);
     }
 
-    .product-image {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-bottom: 1px solid #e5e7eb;
-      background: #d1fae5;
-    }
+     .product-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #e5e7eb;
+    background: #d1fae5;
+  }
 
     .product-info {
       padding: 20px 16px;
@@ -126,23 +127,17 @@
     }
 
     /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .best-sellers {
-        grid-template-columns: repeat(2, 1fr); /* 2 boxes in a row for smaller screens */
-      }
+    @media (max-width: 1024px) {
+    .best-sellers {
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    @media (max-width: 480px) {
-      h2 {
-        font-size: 2rem;
-      }
-      .product-card {
-        border-radius: 12px;
-      }
-      .best-sellers {
-        grid-template-columns: 1fr; /* 1 box in a row for very small screens */
-      }
+    @media (max-width: 640px) {
+    .best-sellers {
+      grid-template-columns: 1fr;
     }
+  }
 
   </style>
 </head>
@@ -180,54 +175,72 @@
 
   <!-- 🟠 Category Circles -->
   <section class="bg-gray-100 px-4 py-6">
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-items-center">
-      <!-- Category Item Template -->
-      <template id="circle-template">
-        <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full overflow-hidden border">
-            <img src="" class="w-full h-full object-cover" alt="" />
-          </div>
-          <span class="text-sm mt-2 text-center"></span>
-        </div>
-      </template>
-
-      <!-- Laptop -->
-      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full overflow-hidden border">
-          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Laptop" />
-        </div>
-        <span class="text-sm mt-2 text-center">Laptop</span>
+  <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6 justify-items-center">
+    <!-- Laptop -->
+    <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
+      <div class="w-20 h-20 rounded-full overflow-hidden border">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Laptop" />
       </div>
-<!-- Mobile -->
-      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full overflow-hidden border">
-          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Mobile" />
-        </div>
-        <span class="text-sm mt-2 text-center">Mobile</span>
-      </div>
-<!-- Headphone -->
-      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full overflow-hidden border">
-          <img src="https://plus.unsplash.com/premium_photo-1679513691485-711d030f7e94?q=80&w=1113&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover" alt="Headphones" />
-        </div>
-        <span class="text-sm mt-2 text-center">Headphones</span>
-      </div>
-
-      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full overflow-hidden border">
-          <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover" alt="Pillow" />
-        </div>
-        <span class="text-sm mt-2 text-center">Books</span>
-      </div>
-
-      <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full overflow-hidden border">
-          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover" alt="Mattress" />
-        </div>
-        <span class="text-sm mt-2 text-center">Fruits</span>
-      </div>
+      <span class="text-sm mt-2 text-center">Laptop</span>
     </div>
-  </section>
+
+    <!-- Mobile -->
+    <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
+      <div class="w-20 h-20 rounded-full overflow-hidden border">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Mobile" />
+      </div>
+      <span class="text-sm mt-2 text-center">Mobile</span>
+    </div>
+
+    <!-- Headphones -->
+    <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
+      <div class="w-20 h-20 rounded-full overflow-hidden border">
+        <img src="https://plus.unsplash.com/premium_photo-1679513691485-711d030f7e94?q=80&w=1113&auto=format&fit=crop" class="w-full h-full object-cover" alt="Headphones" />
+      </div>
+      <span class="text-sm mt-2 text-center">Headphones</span>
+    </div>
+
+    <!-- Books -->
+    <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
+      <div class="w-20 h-20 rounded-full overflow-hidden border">
+        <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?q=80&w=1170&auto=format&fit=crop" class="w-full h-full object-cover" alt="Books" />
+      </div>
+      <span class="text-sm mt-2 text-center">Books</span>
+    </div>
+
+    <!-- Fruits -->
+    <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
+      <div class="w-20 h-20 rounded-full overflow-hidden border">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1074&auto=format&fit=crop" class="w-full h-full object-cover" alt="Fruits" />
+      </div>
+      <span class="text-sm mt-2 text-center">Fruits</span>
+    </div>
+
+    <!-- Camera -->
+    <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
+      <div class="w-20 h-20 rounded-full overflow-hidden border">
+        <img src="https://images.alphacoders.com/478/478024.jpg" class="w-full h-full object-cover" alt="Camera" />
+      </div>
+      <span class="text-sm mt-2 text-center">Camera</span>
+    </div>
+
+    <!-- Watches -->
+    <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
+      <div class="w-20 h-20 rounded-full overflow-hidden border">
+        <img src="https://zimsonwatches.com/cdn/shop/articles/Fossil-Blog-Image.png?v=1710996978&width=1100" class="w-full h-full object-cover" alt="Watches" />
+      </div>
+      <span class="text-sm mt-2 text-center">Watches</span>
+    </div>
+
+    <!-- Toys -->
+    <div class="flex flex-col items-center transition-transform duration-300 hover:scale-110">
+      <div class="w-20 h-20 rounded-full overflow-hidden border">
+        <img src="https://img.freepik.com/premium-photo/toys-kids-play-time-colorful-fun-composition_594847-3791.jpg?semt=ais_hybrid&w=740" class="w-full h-full object-cover" alt="Toys" />
+      </div>
+      <span class="text-sm mt-2 text-center">Toys</span>
+    </div>
+  </div>
+</section>
 
   <!-- 🛒 Best Sellers -->
    <section class="px-4 py-6">
@@ -310,7 +323,7 @@
         loading="lazy"
       />
       <div class="product-info">
-        <h3 class="product-name">Laptop</h3>
+        <h3 class="product-name">Leptop</h3>
         <p class="product-desc">Laptops - High Performance Laptops</p>
         <div class="product-price">₹55,000</div>
       </div>
